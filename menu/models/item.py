@@ -1,11 +1,14 @@
 """
-    File: item.py
+    File: menu/model/item.py
     Purpose: Define structure for item in menu
 """
+
+from enum import Enum
 
 from django.db import models
 
 from .category import Category
+
 
 class Item(models.Model):
     """ ORM class that present the Category table"""
@@ -14,3 +17,12 @@ class Item(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.CharField(max_length=120)
     thumbnail_image = models.ImageField(upload_to='uploads/%Y/%m')
+
+
+class ItemPermission(Enum):
+    """ Enum contains the permission on item model """
+
+    add = 'add_item'
+    change = 'change_item'
+    delete = 'delete_item'
+    view = 'view_item'
