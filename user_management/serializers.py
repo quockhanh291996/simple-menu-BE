@@ -15,6 +15,7 @@ from user_management.constants import UserGroups
 
 logger = logging.getLogger(__name__)
 
+
 class UserSerializer(serializers.ModelSerializer):
     """ User seriazlier class """
 
@@ -40,6 +41,7 @@ class UserSerializer(serializers.ModelSerializer):
                 group.save()
 
         return user
+
 
 class UserRole(serializers.ModelSerializer):
     """ Role seriazlier class - Support for resgitration form, just for easy to demo """
