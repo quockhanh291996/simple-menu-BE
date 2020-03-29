@@ -22,7 +22,9 @@ class Item(models.Model):
 class ItemPermission(Enum):
     """ Enum contains the permission on item model """
 
-    add = 'add_item'
-    change = 'change_item'
-    delete = 'delete_item'
-    view = 'view_item'
+    app_name = 'menu'
+
+    add = app_name + '.add_item'
+    change = app_name + '.change_item'
+    delete = app_name + '.delete_item'
+    view = app_name + '.view_item'
