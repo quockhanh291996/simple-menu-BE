@@ -5,15 +5,10 @@
 
 from enum import Enum
 
+from user_management.constants import UserGroups
+
 from menu.models.category import CategoyPermission
 from menu.models.item import ItemPermission
-
-
-class UserGroups(Enum):
-    """ Enum contains the user group for authorization in menu """
-
-    ADMIN = 'admin_user'
-    STANDARD = 'standard_user'
 
 # Mapping object present the permissions of each user group
 GROUP_PERMISSION_MAPPING = {
