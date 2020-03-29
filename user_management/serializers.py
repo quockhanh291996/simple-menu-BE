@@ -1,12 +1,11 @@
 """
-    file: account/serializers.py
+    file: user_management/serializers.py
     purpose: Define Serializer class for user model that help us to serialize deserialize the datatypes
 """
 
 import logging
 
-from rest_framework import serializers
-from rest_framework.validators import UniqueValidator
+from rest_framework.serializers import ModelSerializer
 
 from django.contrib.auth.models import User, Group
 from django.core.exceptions import ObjectDoesNotExist
@@ -16,7 +15,7 @@ from user_management.constants import UserGroups
 logger = logging.getLogger(__name__)
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(ModelSerializer):
     """ User seriazlier class """
 
     class Meta:
@@ -25,7 +24,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = User.objects.create_user(validated_data['username'], validated_data['email'],
-             validated_data['password'])
+            validated_data['password'])
 
         if not validated_data['groups'] or len(validated_data['groups']) == 0:
             # Add user to standard group by default if there are no option
@@ -43,7 +42,7 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 
-class UserRole(serializers.ModelSerializer):
+class UserRole(ModelSerializer):
     """ Role seriazlier class - Support for resgitration form, just for easy to demo """
 
     class Meta:

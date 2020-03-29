@@ -14,7 +14,7 @@ class Category(models.Model):
     name = models.CharField(max_length=30, unique=True)
 
 
-class CategoyPermission(Enum):
+class CategoryPermission(Enum):
     """ Enum contains the permission on category model """
 
     app_name = 'menu'
