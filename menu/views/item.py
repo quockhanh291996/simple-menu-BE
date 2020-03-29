@@ -1,25 +1,25 @@
 """
-    file: menu/views/category.py
+    file: menu/view/item.py
     purpose: Define class-based view for apis related to menu
 """
 
 from rest_framework.viewsets import ModelViewSet
 
-from menu.serializers import CategorySerializer
-from menu.models import Category
+from menu.serializers import ItemSerializer
+from menu.models import Item
 from menu.permissions import (
-    ViewCategoryPermission,
-    AddCategoryPermission,
-    UpdateCategoryPermission,
-    DeleteCategoryPermission
+    ViewItemPermission,
+    AddItemPermission,
+    UpdateItemPermission,
+    DeleteItemPermission
 )
 
 
-class CategoryViewSet(ModelViewSet):
-    """ Category viewset  """
+class ItemViewSet(ModelViewSet):
+    """ Item viewset  """
 
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+    queryset = Item.objects.all()
+    serializer_class = ItemSerializer
 
     def get_permissions(self):
         """
@@ -30,12 +30,12 @@ class CategoryViewSet(ModelViewSet):
               don't need change the view too much
         """
         if self.action in ['retrieve','list']:
-            self.permission_classes = [ViewCategoryPermission,]
+            self.permission_classes = [ViewItemPermission,]
         elif self.action in ['create']:
-            self.permission_classes = [AddCategoryPermission]
+            self.permission_classes = [AddItemPermission]
         elif self.action in ['update', 'partial_update']:
-            self.permission_classes = [UpdateCategoryPermission]
+            self.permission_classes = [UpdateItemPermission]
         elif self.action in ['destroy']:
-            self.permission_classes = [DeleteCategoryPermission]
+            self.permission_classes = [DeleteItemPermission]
 
         return [permission() for permission in self.permission_classes]
