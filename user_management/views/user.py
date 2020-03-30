@@ -1,13 +1,13 @@
 """
-    file: account/views.py
+    file: account/views/user.py
     purpose: Define class-based view for apis related to account
 """
 
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User
 
-from user_management.serializers import UserSerializer, UserRole
+from user_management.serializers import UserSerializer
 from user_management import permissions
 
 
@@ -33,10 +33,3 @@ class UserViewSet(ModelViewSet):
             self.permission_classes = [permissions.UpdateUserPermission]
 
         return [permission() for permission in self.permission_classes]
-
-
-class UserRoleSet(ReadOnlyModelViewSet):
-    """ Role viewset class - Just read-only to FE get the role when resgister"""
-
-    queryset = Group.objects.all()
-    serializer_class = UserRole
