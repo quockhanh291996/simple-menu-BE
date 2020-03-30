@@ -1,6 +1,7 @@
 """
     file: user_management/serializers.py
-    purpose: Define Serializer class for user model that help us to serialize deserialize the datatypes
+    purpose: Define Serializer class for user model
+            that help us to serialize deserialize the datatypes
 """
 
 import logging
@@ -24,7 +25,7 @@ class UserSerializer(ModelSerializer):
 
     def create(self, validated_data):
         user = User.objects.create_user(validated_data['username'], validated_data['email'],
-            validated_data['password'])
+                                        validated_data['password'])
 
         if not validated_data['groups'] or len(validated_data['groups']) == 0:
             # Add user to standard group by default if there are no option

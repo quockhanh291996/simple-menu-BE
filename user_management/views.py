@@ -25,7 +25,7 @@ class UserViewSet(ModelViewSet):
               If we have many group later, we can just change the code of permission,
               don't need change the view too much
         """
-        if self.action in ['retrieve','list']:
+        if self.action in ['retrieve', 'list']:
             self.permission_classes = [permissions.ViewUserPermission,]
         elif self.action in ['update', 'partial_update']:
             self.permission_classes = [permissions.UpdateUserPermission]

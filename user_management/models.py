@@ -1,6 +1,7 @@
 """
     file: user_management/models
-    purpose: Use the User model of djang-auth app, but will define the permission enum on user table here
+    purpose: Use the User model of djang-auth app,
+            but will define the permission enum on user table here
 """
 from enum import Enum
 

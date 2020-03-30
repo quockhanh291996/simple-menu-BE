@@ -29,7 +29,7 @@ class CategoryViewSet(ModelViewSet):
               If we have many group later, we can just change the code of permission,
               don't need change the view too much
         """
-        if self.action in ['retrieve','list']:
+        if self.action in ['retrieve', 'list']:
             self.permission_classes = [ViewCategoryPermission,]
         elif self.action in ['create']:
             self.permission_classes = [AddCategoryPermission]
