@@ -42,6 +42,14 @@ class UserSerializer(ModelSerializer):
 
         return user
 
+    def get_info(self):
+        """ Get the info of user for client-site """
+
+        result = self.data
+        del result['password']
+
+        return result
+
 
 class UserRole(ModelSerializer):
     """ Role seriazlier class - Support for resgitration form, just for easy to demo """
