@@ -11,7 +11,7 @@ class UserPermission(Enum):
     # Name of app cotain user model
     app_name = 'auth'
 
-    add = app_name + '.add_user'
-    change = app_name + '.change_user'
-    delete = app_name + '.delete_user'
-    view = app_name + '.view_user'
+    add = 'add_user'
+    change = 'change_user'
+    delete = 'delete_user'
+    view = 'view_user'

@@ -8,22 +8,24 @@ from rest_framework import permissions
 from user_management.models import UserPermission
 
 
+app_name = UserPermission.app_name.value
+
 class ViewUserPermission(permissions.BasePermission):
     """ Check permission to view user """
 
     def has_permission(self, request, view):
-        return request.user.has_perm(UserPermission.view.value)
+        return request.user.has_perm(('%s.%s') % (app_name, UserPermission.view.value))
 
 
 class UpdateUserPermission(permissions.BasePermission):
     """ Check permission to view user """
 
     def has_permission(self, request, view):
-        return request.user.has_perm(UserPermission.change.value)
+        return request.user.has_perm(('%s.%s') % (app_name, UserPermission.change.value))
 
 
 class DeleteUserPermission(permissions.BasePermission):
     """ Check permission to view user """
 
     def has_permission(self, request, view):
-        return request.user.has_perm(UserPermission.delete.value)
+        return request.user.has_perm(('%s.%s') % (app_name, UserPermission.delete.value))
