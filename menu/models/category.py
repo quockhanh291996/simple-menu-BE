@@ -19,7 +19,7 @@ class CategoryPermission(Enum):
 
     app_name = 'menu'
 
-    add = app_name + '.add_category'
-    change = app_name + '.change_category'
-    delete = app_name + '.delete_category'
-    view = app_name + '.view_category'
+    add = 'add_category'
+    change = 'change_category'
+    delete = 'delete_category'
+    view = 'view_category'
