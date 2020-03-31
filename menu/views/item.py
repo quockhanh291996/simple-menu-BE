@@ -21,6 +21,13 @@ class ItemViewSet(ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
 
+    def get_queryset(self):
+        queryset = Item.objects.all()
+        category_id = self.request.query_params.get('categoryID', None)
+        if category_id is not None:
+            queryset = queryset.filter(category__pk=category_id)
+        return queryset
+
     def get_permissions(self):
         """
             Function to get permission on API
