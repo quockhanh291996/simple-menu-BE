@@ -16,7 +16,7 @@ class Item(models.Model):
     name = models.CharField(max_length=30)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     description = models.CharField(max_length=120)
-    thumbnail_image = models.ImageField(upload_to='uploads/%Y/%m')
+    thumbnail_image = models.ImageField()
 
 
 class ItemPermission(Enum):
