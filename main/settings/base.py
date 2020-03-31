@@ -140,7 +140,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 25
 }
 
-APPEND_SLASH = False
+APPEND_SLASH = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
