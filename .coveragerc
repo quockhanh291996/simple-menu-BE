@@ -1,0 +1,7 @@
+[coverage:run]
+source = .
+omit =
+    */site-packages/*
+    */distutils/*
+    tests/*
+    manage.py

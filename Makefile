@@ -20,3 +20,8 @@ run_demo:
 	make load_init_data
 	make run_server
 
+run_ut:
+	coverage erase
+	coverage run manage.py test
+	coverage report
+
